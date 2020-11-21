@@ -1,10 +1,9 @@
 const { Router } = require('express');
 
+const controllers = require('../controllers/controller-git');
 
 const router = Router();
 
-router.get('/', function(req, res) {
-    res.send("test git");
-})
+router.get('/', controllers.get_git)
 
 module.exports = router;
