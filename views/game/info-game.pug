@@ -1,0 +1,12 @@
+extends ../layout/header.pug    
+block cnt
+    .container
+        h1= data.name + " "
+            img(src=data.avatar, alt="not img")
+        if !key || key % 2 === 1
+            a(href="/follow/" + data.id id="black") Follow      
+        else 
+            a(href="/follow/" + data.id id="black") UnFollow 
+        a(href="/game" id="black") Back 
+
+
