@@ -8,8 +8,10 @@ const routerGame = require('./routers/router-game');
 const routerMusic = require('./routers/router-music');
 const routerLogin = require('./routers/router-authentication');
 const routerFollow = require('./routers/router-follow');
+const routerGit = require('./routers/router-git');
 const auth = require('./middleware/authentication');
 const sessionMiddleware = require('./middleware/session');
+
 
 
 const urlencodedBodyParser = bodyParser.urlencoded({extended: false});
@@ -45,6 +47,7 @@ app.use('/game', auth.authentication, routerGame);
 app.use('/music', auth.authentication, routerMusic);
 app.use('/login', routerLogin);
 app.use('/follow', routerFollow);
+app.use('/git', routerGit);
 
 //listen
 app.listen(process.env.PORT, process.env.HOST, function() {
