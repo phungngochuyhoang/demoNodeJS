@@ -1,0 +1,18 @@
+extends ../layout/header.pug
+block cnt
+    div(class="container")
+        h1= title
+        a(href="/game/add" id="add-game") Add Game 
+        form(action="/game/search" method="GET")
+            input(type="text" name="name" autocomplete="off")
+            button search
+        ol(class="list-game")
+            each item in data 
+                li
+                    span= item.name
+                    a(href="infoGame/" + item.id id="view")  View
+            
+        a(href="/" id="black") Back 
+
+       
+

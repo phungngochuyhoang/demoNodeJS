@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "id": "HH-EXju2K",
+      "name": "penguin",
+      "avatar": "uploads\\58b3b7dffb61bd0254543a97403ad6f9"
+    },
+    {
+      "id": "j2Jw-Wti7",
+      "name": "poop",
+      "avatar": "uploads\\7052bfdb5af1f49e9d24d8c88cba0f46"
+    },
+    {
+      "id": "oaZTyj3g2",
+      "name": "shark",
+      "avatar": "uploads\\b55ffb9d5411db8a8532aab27c94e486"
+    }
+  ],
+  "user": [
+    {
+      "id": "Jahdjsdb",
+      "user": "admin",
+      "password": "c4ca4238a0b923820dcc509a6f75849b"
+    }
+  ],
+  "session": [
+    {
+      "id": "xErJTi6Rh",
+      "follow": {
+        "HH-EXju2K": 6,
+        "j2Jw-Wti7": 2
+      }
+    },
+    {
+      "id": "86VFYd599",
+      "follow": {
+        "j2Jw-Wti7": 2
+      }
+    }
+  ]
+}

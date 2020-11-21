@@ -1,0 +1,11 @@
+extends ../layout/header.pug    
+block cnt   
+    .container
+        h1=title
+        form(method="POST" id="form-login")
+            label Username 
+            input(type="text" name="username" autocomplete="off")
+            label Password 
+            input(type="password" name="password")
+            button Login 
+            p= err

@@ -1,0 +1,10 @@
+extends ../layout/header.pug
+block cnt
+    .container
+        h1= title
+        form(action="/game/add" method="POST" id="form-add" enctype="multipart/form-data")
+            input(type="file" name="avatar")
+            input(type="text" name="name" placeholder="Name game" autocomplete="off") 
+            button Add
+        a(href="/game" id="black") Back 
+        script(src="script.js")
