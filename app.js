@@ -2,6 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+var mongoose = require('mongoose');
+
+mongoose.connect(process.env.DB_URL, { useUnifiedTopology: true, useNewUrlParser: true});
 
 
 const routerGame = require('./routers/router-game');

@@ -3,24 +3,32 @@ const shortId = require('shortid');
 
 
 const db = require('../db');
+const datas = require('../models/data-model');
 
 // game
 module.exports.get_game = function(req, res) {
-    var page = parseInt(req.query.page) || 1;
-    var item = 8;
-    var start = (page - 1) * item;
-    var end = (page - 1) * item + item;
-    var data = db.get('data').write();
+    // var page = parseInt(req.query.page) || 1;
+    // var item = 8;
+    // var start = (page - 1) * item;
+    // var end = (page - 1) * item + item;
+    // var data = db.get('data').write();
    
-    console.log(db.get('data').value())
 
-    res.render('game/document-game', {
-        title: 'Document Game',
-        data: data.slice(start, end),
-        pagination: db.get('data').value(),
-        item: item,
+    // res.render('game/document-game', {
+    //     title: 'Document Game',
+    //     data: data.slice(start, end),
+    //     pagination: db.get('data').value(),
+    //     item: item,
         
+    // })
+
+    datas.find().then(function(data) {
+        res.render('game/document-game', {
+            data: data,
+            title: "Document"   
+        })
     })
+
 }
 
 module.exports.post_api = function(req, res) {
@@ -53,21 +61,28 @@ module.exports.post_game_add = function(req, res) {
     res.redirect('/game');
 }
 
-module.exports.get_infoGame = function(req, res) {
+module.exports.get_infoGame = async function(req, res) {
     var id = req.params.id;
-    var filterData = db.get('data').find({id: id}).value();
-    var session = db.get('session').find({id: req.signedCookies.sessionId}).value();
-    var keyFollow;
-    for(let key in session.follow) {
-        if(id === key) {
-            keyFollow = session.follow[key];
-            name = key;
-        }
-    }
+    // var filterData = db.get('data').find({id: id}).value();
+    // var session = db.get('session').find({id: req.signedCookies.sessionId}).value();
+    // var keyFollow;
+    // for(let key in session.follow) {
+    //     if(id === key) {
+    //         keyFollow = session.follow[key];
+    //         name = key;
+    //     }
+    // }
 
 
+    // res.render('game/info-game', {
+    //     data: filterData,
+    //     key: keyFollow
+    // });
+
+    var data = await datas.find({'_id': id})
+        
     res.render('game/info-game', {
-        data: filterData,
-        key: keyFollow
-    });
+        data: data 
+    })
+        
 }
