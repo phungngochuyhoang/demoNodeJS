@@ -1,5 +1,4 @@
 
-const { seed } = require("shortid");
 const db = require("../db");
 
 module.exports.get_followAdd = function (req, res, next) {
