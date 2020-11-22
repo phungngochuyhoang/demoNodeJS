@@ -12,7 +12,7 @@ module.exports.get_game = function(req, res) {
     var end = (page - 1) * item + item;
     var data = db.get('data').write();
    
-    console.log(db.get('data').value());
+    console.log(db.get('data').value())
 
     res.render('game/document-game', {
         title: 'Document Game',
